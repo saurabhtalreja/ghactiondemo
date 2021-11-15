@@ -3,14 +3,12 @@ name: Maven CI/CD
 on:
  push:
     branches: [ master ]
-  pull_request:
+ pull_request:
     branches: [ master ]
 
 jobs:
   build_and_test:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 14
@@ -22,12 +20,12 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Deploy to Cloud Foundry
-        uses: jhunt/cf-push@v1
-        with:
-          api:      https://api.cf.eu10.hana.ondemand.com
-          org:      ${{ secrets.ORG }}
-          space:    ${{ secrets.CF_SPACE }}
-          username: ${{ secrets.CF_USERNAME }}
-          password: ${{ secrets.CF_PASSWORD }}
-          manifest: manifest.yml
-          validate: false
+      uses: jhunt/cf-push@v1
+      with:
+        api:      https://api.cf.eu10.hana.ondemand.com
+        org:      ${{ secrets.ORG }}
+        space:    ${{ secrets.CF_SPACE }}
+        username: ${{ secrets.CF_USERNAME }}
+        password: ${{ secrets.CF_PASSWORD }}
+        manifest: manifest.yml
+        validate: false
