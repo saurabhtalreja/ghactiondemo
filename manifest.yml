@@ -1,5 +1,5 @@
 applications:
-  - name: firstapp
+  - name: saurabhdemo
     memory: 1024M
     instances: 1
     buildpack: sap_java_buildpack
