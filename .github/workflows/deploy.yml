@@ -22,8 +22,8 @@ jobs:
     - name: Deploy to Cloud Foundry
       uses: jhunt/cf-push@v1
       with:
-        api:      https://api.cf.eu10.hana.ondemand.com
-        org:      ${{ secrets.ORG }}
+        api:      ${{secrets.CF_API_HOST}}
+        org:      ${{ secrets.CF_ORG }}
         space:    ${{ secrets.CF_SPACE }}
         username: ${{ secrets.CF_USERNAME }}
         password: ${{ secrets.CF_PASSWORD }}

@@ -3,4 +3,4 @@ applications:
     memory: 1024M
     instances: 1
     buildpack: sap_java_buildpack
-    path: target/spring-boot-complete-0.0.1-SNAPSHOT.jar
+    path: target/spring-boot-demo-saurabh-1.0.jar
